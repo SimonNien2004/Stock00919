@@ -1,0 +1,14 @@
+{
+  "fetched_at": "2026-10-26",
+  "sources": {
+    "price": "FinMind＋yfinance",
+    "dividends": "FinMind",
+    "taiex": "FinMind",
+    "inst": "FinMind"
+  },
+  "warnings": [
+    "FinMind 尚未更新 2026-10-23，這幾天的價格由 yfinance 補上",
+    "價格資料停在 2026-10-23，比最近的工作日少 1 天（可能是休市，或資料源還沒更新）"
+  ],
+  "last_price_date": "2026-10-23"
+}
