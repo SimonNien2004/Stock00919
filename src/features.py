@@ -62,8 +62,8 @@ def _rsi(s: pd.Series, n: int = 14) -> pd.Series:
     return 100 - 100 / (1 + up / dn.replace(0, np.nan))
 
 
-def _range_pos(s: pd.Series, w: int) -> pd.Series:
-    lo, hi = s.rolling(w).min(), s.rolling(w).max()
+def _range_pos(s: pd.Series, w: int, minp: int | None = None) -> pd.Series:
+    lo, hi = s.rolling(w, min_periods=minp).min(), s.rolling(w, min_periods=minp).max()
     return ((s - lo) / (hi - lo).replace(0, np.nan)).fillna(0.5)
 
 
@@ -99,11 +99,14 @@ def build(cfg: dict, raw: dict | None = None) -> tuple[pd.DataFrame, pd.DataFram
     base["adj"] = adjusted_close(base["close"], base["div"])
 
     a = base["adj"]
+    # 暖機期：240 日指標至少要有幾天資料才開始算（歷史很短的 ETF 可調小，預設 240）
+    warm = int(cfg.get("warmup_days", 240))
     X = pd.DataFrame(index=base.index)
     X["pos120"] = _range_pos(a, 120)
-    X["pos240"] = _range_pos(a, 240)
-    for w in (20, 60, 240):
+    X["pos240"] = _range_pos(a, 240, min(warm, 240))
+    for w in (20, 60):
         X[f"bias{w}"] = a / a.rolling(w).mean() - 1
+    X["bias240"] = a / a.rolling(240, min_periods=min(warm, 240)).mean() - 1
     X["ret20"] = a.pct_change(20)
     X["ret60"] = a.pct_change(60)
     X["vol20"] = a.pct_change().rolling(20).std() * np.sqrt(252)
@@ -153,6 +156,6 @@ def build(cfg: dict, raw: dict | None = None) -> tuple[pd.DataFrame, pd.DataFram
     fut_min = a[::-1].rolling(60, min_periods=60).min()[::-1].shift(-1)
     Y["dip"] = (fut_min <= a * (1 - cfg["dip_pct"])).astype(float).where(fut_min.notna())
 
-    # 去掉暖機期（240 日）
+    # 去掉暖機期（warmup_days，預設 240 日）
     valid = X["bias240"].notna()
     return base[valid], X.loc[valid, FEATURES], Y[valid]

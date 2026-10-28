@@ -53,7 +53,7 @@ def generate(seed: int = 7, end: str | None = None) -> dict:
     ex_set = set(ex_dates)
     for i, d in enumerate(days):
         if d in ex_set and i > 0:
-            dv = round(close[i - 1] * rng.uniform(0.014, 0.022), 3)
+            dv = round(close[i - 1] * rng.uniform(0.014, 0.022) * 4 / len(cfg.get("ex_months", (1, 4, 7, 10))), 3)
             factor *= (close[i - 1] - dv) / close[i - 1]
             divs.append((d.strftime("%Y-%m-%d"), dv))
         close[i] = round(total_idx[i] * factor, 2)

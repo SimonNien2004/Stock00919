@@ -180,7 +180,7 @@ def contributions(clf, X: pd.DataFrame, last: pd.DataFrame) -> pd.Series:
     if isinstance(clf, float):
         return pd.Series(0.0, index=X.columns)
     med = X.median()
-    rows = pd.concat([last] * len(X.columns), ignore_index=True)
+    rows = pd.concat([last] * len(X.columns), ignore_index=True).astype(float)
     for i, c in enumerate(X.columns):
         rows.loc[i, c] = med[c]
     p_now = clf.predict_proba(last)[0, 1]
