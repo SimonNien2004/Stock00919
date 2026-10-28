@@ -7,5 +7,7 @@
     "inst": "FinMind"
   },
   "warnings": [],
+  "expected_date": "2026-10-28",
+  "stale_days": 0,
   "last_price_date": "2026-10-28"
 }

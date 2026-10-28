@@ -5,7 +5,9 @@
   "signal": "一般加碼",
   "confidence": "高",
   "advice": [
-    "額外加碼：可小額加碼；想一次投入較多，等評分 ≥ 75 再用。"
+    "定期定額照常：每月 8、18、28 日各 3,000 元，下次約 11/08 扣款（遇休市順延）。",
+    "額外加碼：本月最多可動用 10,000 元（月初剩餘資金的 10%；資金池剩 100,000 / 100,000 元，與 00878、00881、00940 共用）；想投入更多，等評分 ≥ 75 再用。",
+    "以今日收盤 32.90 估算，額外加碼 10,000 元約可買 303 股，你的均價會從 32.30 變為 32.52。"
   ],
   "prediction": {
     "p_up20": 0.9320036395210695,
@@ -29,26 +31,43 @@
     "ttm_div": 3.42,
     "last_div": 1.1,
     "market_yield": 0.10395136778115502,
-    "shares": 463.0,
-    "lots": 0.463,
-    "cost": 14894.710000000001,
-    "avg_cost": 32.17,
-    "market_value": 15232.699999999999,
-    "unrealized": 337.98999999999796,
-    "unrealized_pct": 0.02269194902082672,
+    "shares": 554.0,
+    "lots": 0.554,
+    "cost": 17894.199999999997,
+    "avg_cost": 32.3,
+    "market_value": 18226.6,
+    "unrealized": 332.40000000000146,
+    "unrealized_pct": 0.018575851393188937,
     "cum_dividends": 0.0,
-    "total_pl": 337.98999999999796,
-    "cost_yield": 0.1063102269194902,
-    "next_div_est": 509.30000000000007,
+    "total_pl": 332.40000000000146,
+    "cost_yield": 0.10588235294117648,
+    "next_div_est": 609.4000000000001,
     "next_div_nhi": 0.0,
-    "n_trades": 1.0
+    "n_trades": 1.0,
+    "pool": {
+      "total": 100000.0,
+      "used": 0.0,
+      "used_self": 0.0,
+      "used_others": 0.0,
+      "shared_with": [
+        "00878",
+        "00881",
+        "00940"
+      ],
+      "remaining": 100000.0,
+      "used_month": 0.0,
+      "cap_normal": 10000.0,
+      "cap_aggressive": 30000.0,
+      "normal_pct": 0.1,
+      "aggressive_pct": 0.3
+    }
   },
   "next_ex_dividend_est": "2026-12-17",
   "next_rebalance_est": "2026-12-20",
   "backtest": {
-    "signal_xirr": 0.6608516120762011,
-    "dca_xirr": 0.7792940884481794,
-    "cost_diff": 0.013279252634282646
+    "signal_xirr": 0.660866552588274,
+    "dca_xirr": 0.7792698185088638,
+    "cost_diff": 0.013269539837889255
   },
   "evaluation": {
     "hit20": 0.6363636363636364,
@@ -69,5 +88,7 @@
     "taiex": "FinMind",
     "inst": "FinMind"
   },
-  "generated_at": "2026-10-28 22:58"
+  "generated_at": "2026-10-28 23:12",
+  "data_stale_days": 0,
+  "data_warnings": []
 }
