@@ -24,11 +24,24 @@
     "加權指數與 60 日均線乖離 +1.4%（不利加碼）"
   ],
   "position": {
-    "has_position": 0.0,
+    "has_position": 1.0,
     "close": 32.9,
     "ttm_div": 3.42,
     "last_div": 1.1,
-    "market_yield": 0.10395136778115502
+    "market_yield": 0.10395136778115502,
+    "shares": 463.0,
+    "lots": 0.463,
+    "cost": 14894.710000000001,
+    "avg_cost": 32.17,
+    "market_value": 15232.699999999999,
+    "unrealized": 337.98999999999796,
+    "unrealized_pct": 0.02269194902082672,
+    "cum_dividends": 0.0,
+    "total_pl": 337.98999999999796,
+    "cost_yield": 0.1063102269194902,
+    "next_div_est": 509.30000000000007,
+    "next_div_nhi": 0.0,
+    "n_trades": 1.0
   },
   "next_ex_dividend_est": "2026-12-17",
   "next_rebalance_est": "2026-12-20",
@@ -56,5 +69,5 @@
     "taiex": "FinMind",
     "inst": "FinMind"
   },
-  "generated_at": "2026-10-28 22:48"
+  "generated_at": "2026-10-28 22:54"
 }
